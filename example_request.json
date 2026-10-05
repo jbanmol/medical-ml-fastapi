@@ -1,0 +1,12 @@
+{
+  "mean_radius": 19.55,
+  "mean_texture": 28.77,
+  "mean_perimeter": 133.6,
+  "mean_area": 1207.0,
+  "mean_smoothness": 0.0926,
+  "mean_compactness": 0.2063,
+  "mean_concavity": 0.1784,
+  "mean_concave_points": 0.1144,
+  "worst_radius": 25.05,
+  "worst_texture": 36.27
+}

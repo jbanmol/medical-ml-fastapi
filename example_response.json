@@ -1,0 +1,10 @@
+{
+  "prediction": "malignant",
+  "prediction_code": 0,
+  "probability": 1.0,
+  "class_probabilities": {
+    "malignant": 1.0,
+    "benign": 0.0
+  },
+  "disclaimer": "This project is for educational demonstration only and must not be used for medical diagnosis or clinical decision-making."
+}

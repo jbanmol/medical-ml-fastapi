@@ -1,0 +1,92 @@
+{
+  "dataset": "Wisconsin Breast Cancer Diagnostic Dataset",
+  "samples": 569,
+  "original_feature_count": 30,
+  "model_type": "StandardScaler + LogisticRegression (sklearn Pipeline)",
+  "selected_features": [
+    "mean radius",
+    "mean texture",
+    "mean perimeter",
+    "mean area",
+    "mean smoothness",
+    "mean compactness",
+    "mean concavity",
+    "mean concave points",
+    "worst radius",
+    "worst texture"
+  ],
+  "api_feature_names": [
+    "mean_radius",
+    "mean_texture",
+    "mean_perimeter",
+    "mean_area",
+    "mean_smoothness",
+    "mean_compactness",
+    "mean_concavity",
+    "mean_concave_points",
+    "worst_radius",
+    "worst_texture"
+  ],
+  "feature_order": [
+    "mean radius",
+    "mean texture",
+    "mean perimeter",
+    "mean area",
+    "mean smoothness",
+    "mean compactness",
+    "mean concavity",
+    "mean concave points",
+    "worst radius",
+    "worst texture"
+  ],
+  "feature_mapping": {
+    "mean_radius": "mean radius",
+    "mean_texture": "mean texture",
+    "mean_perimeter": "mean perimeter",
+    "mean_area": "mean area",
+    "mean_smoothness": "mean smoothness",
+    "mean_compactness": "mean compactness",
+    "mean_concavity": "mean concavity",
+    "mean_concave_points": "mean concave points",
+    "worst_radius": "worst radius",
+    "worst_texture": "worst texture"
+  },
+  "target_names": [
+    "malignant",
+    "benign"
+  ],
+  "class_mapping": {
+    "0": "malignant",
+    "1": "benign"
+  },
+  "random_seed": 42,
+  "test_size": 0.2,
+  "train_samples": 455,
+  "test_samples": 114,
+  "metrics": {
+    "accuracy": 0.9473684210526315,
+    "precision": 0.9090909090909091,
+    "recall": 0.9523809523809523,
+    "f1": 0.9302325581395349,
+    "positive_class": "malignant",
+    "positive_class_code": 0,
+    "confusion_matrix": [
+      [
+        40,
+        2
+      ],
+      [
+        4,
+        68
+      ]
+    ],
+    "confusion_matrix_class_order": [
+      "malignant",
+      "benign"
+    ]
+  },
+  "sklearn_version": "1.7.2",
+  "created_at_utc": "2026-10-05T05:28:36.356161+00:00",
+  "example_dataset_row": 256,
+  "example_true_class": "malignant"
+}
