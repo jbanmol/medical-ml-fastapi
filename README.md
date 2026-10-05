@@ -105,7 +105,7 @@ curl -X POST http://127.0.0.1:8000/predict \
   --data-binary @example_request.json
 ```
 
-Actual API response (HTTP 200):
+Actual response from the live deployed API (HTTP 200):
 ```json
 {
   "prediction": "malignant",
@@ -134,4 +134,22 @@ docker run --rm -p 8000:8000 medical-ml-fastapi
 The image includes the committed model and uses `PORT` (default 8000).
 
 ## Render Configuration
-Native Python web service, free plan, Singapore region. Build: `pip install -r requirements.txt`. Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`. Python is fixed to 3.11.15. No database, secrets or external API credentials are required. `render.yaml` records equivalent Blueprint settings with `/health` as the health-check path. The live service settings are verified separately after creation.
+Native Python web service, free plan, Singapore region. Build: `pip install -r requirements.txt`. Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`. Python is fixed to 3.11.15. No database, secrets or external API credentials are required. `render.yaml` records equivalent Blueprint settings with `/health` as the health-check path. The service was created directly through the Render connector; its default TCP health check is active. The Blueprint additionally configures HTTP `/health` checks if applied through Render Blueprints.
+
+
+## Live Deployment
+- Live API: https://medical-ml-fastapi.onrender.com
+- Swagger: https://medical-ml-fastapi.onrender.com/docs
+- Health: https://medical-ml-fastapi.onrender.com/health
+- Prediction: https://medical-ml-fastapi.onrender.com/predict
+- Public repository: https://github.com/jbanmol/medical-ml-fastapi
+
+Home, health, Swagger and a real prediction were verified with public HTTP requests on 2026-10-05. Health returned `{"status":"ok","model_loaded":true}`; prediction returned HTTP 200. See `live_verification.json` for the recorded requests and responses, and [successful_prediction.jpg](screenshots/successful_prediction.jpg) for the actual live Swagger execution (under 10 MB).
+
+```bash
+curl -X POST https://medical-ml-fastapi.onrender.com/predict \
+  -H 'Content-Type: application/json' \
+  --data-binary @example_request.json
+```
+
+The free Render service can sleep when idle, so the first request may take longer. New commits to `main` deploy automatically. Changes to the training feature contract require rerunning training and committing the updated model, metadata and example together.

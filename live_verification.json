@@ -1,0 +1,53 @@
+{
+  "base_url": "https://medical-ml-fastapi.onrender.com",
+  "verified_at_utc": "2026-10-05T05:34:51.916870+00:00",
+  "checks": {
+    "/": {
+      "status": 200,
+      "body": {
+        "name": "Breast Cancer Classification API",
+        "message": "Educational ML deployment demonstration",
+        "health": "/health",
+        "predict": "/predict",
+        "docs": "/docs",
+        "disclaimer": "This project is for educational demonstration only and must not be used for medical diagnosis or clinical decision-making."
+      }
+    },
+    "/health": {
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "model_loaded": true
+      }
+    },
+    "/docs": {
+      "status": 200,
+      "body": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css\">\n    <link rel=\"shortcut icon\" href=\"https://fastapi.tiangolo.com/img/favicon.png\">\n    <title>Breast Cancer Classification API - Swagger UI</title>\n    </head>\n    <body>\n    <div id=\"swagger-ui\">\n    </div>\n    <script src=\"https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js\"></script>\n    <!-- `SwaggerUIBundle` is now available on the page -->\n    <script>\n    const ui = SwaggerUIBundle({\n        url: '/openapi.json',\n    \"dom_id\": \"#swagger-ui\",\n\"layout\": \"BaseLayout\",\n\"deepLinking\": true,\n\"showExtensions\": true,\n\"showCommonExtensions\": true,\noauth2RedirectUrl: window.location.origin + '/docs/oauth2-redirect',\n    presets: [\n        SwaggerUIBundle.presets.apis,\n        SwaggerUIBundle.SwaggerUIStandalonePreset\n        ],\n    })\n    </script>\n    </body>\n    </html>\n    "
+    },
+    "/predict": {
+      "status": 200,
+      "request": {
+        "mean_radius": 19.55,
+        "mean_texture": 28.77,
+        "mean_perimeter": 133.6,
+        "mean_area": 1207.0,
+        "mean_smoothness": 0.0926,
+        "mean_compactness": 0.2063,
+        "mean_concavity": 0.1784,
+        "mean_concave_points": 0.1144,
+        "worst_radius": 25.05,
+        "worst_texture": 36.27
+      },
+      "response": {
+        "prediction": "malignant",
+        "prediction_code": 0,
+        "probability": 1.0,
+        "class_probabilities": {
+          "malignant": 1.0,
+          "benign": 0.0
+        },
+        "disclaimer": "This project is for educational demonstration only and must not be used for medical diagnosis or clinical decision-making."
+      }
+    }
+  }
+}
